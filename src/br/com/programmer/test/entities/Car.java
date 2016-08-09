@@ -1,5 +1,6 @@
+package br.com.programmer.test.entities;
 
-public class Carro {
+public class Car {
 	
 	private String name;
 
