@@ -1,5 +1,4 @@
-# Projection Helper
+# Alias to Bean Result Transforme
 
-Esta classe foi criada com o intuito de facilitar a execução de Projections do Hibernate.
-Um problema que me deparo constantemente é no que diz respeito a criação de projections de colunas que não pertencem a classe raiz da nossa criteria.
-Para 
+The idea behind this small project is to let you do more with Hibernate Projections. Please, access the <a href="https://lucasctd.github.io/AliasToBeanResultTransformer/" target="_blank">documentation</a> to know more about it.
+It will be very helpful to you on your day-to-day criterias.
