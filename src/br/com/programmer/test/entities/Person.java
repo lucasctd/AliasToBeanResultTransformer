@@ -6,7 +6,8 @@ public class Person {
 	private Person son;
 	private Car car;
 	
-
+	//gets sets
+	
 	public String getName() {
 		return name;
 	}

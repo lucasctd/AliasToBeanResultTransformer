@@ -13,7 +13,7 @@ import br.com.programmer.exception.ProjectionHelperException;
  * {@link www.programmer.com.br}
  *
  */
-public class ProjectionHelper {
+public class AliasToBeanResultTransformer {
 
 	/**
 	 * 

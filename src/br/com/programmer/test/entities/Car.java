@@ -4,6 +4,8 @@ public class Car {
 	
 	private String name;
 
+	//gets sets
+	
 	public String getName() {
 		return name;
 	}
