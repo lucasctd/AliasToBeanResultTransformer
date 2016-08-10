@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import br.com.programmer.exception.ProjectionHelperException;
+import br.com.programmer.exception.AliasToBeanResultTransformerException;
 /**
  * 
  * @author Lucas Reis
@@ -26,10 +26,10 @@ public class AliasToBeanResultTransformer {
 	 * @throws ProjectionHelperException
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public <T> List<T> transformList(Class clazz, List<Object []> resultList, String[] aliases) throws ProjectionHelperException{
+	public <T> List<T> transformList(Class clazz, List<Object []> resultList, String[] aliases) throws AliasToBeanResultTransformerException{
 		
 		if(resultList.get(0).length != aliases.length){
-			throw new ProjectionHelperException("The number of values and aliases must be the same.");
+			throw new AliasToBeanResultTransformerException("The number of values and aliases must be the same.");
 		}
 		List<T> genericList = new ArrayList<T>();
 		List<List<String>> aliasesList = getAliases(aliases);
@@ -42,7 +42,7 @@ public class AliasToBeanResultTransformer {
 				genericList.add(t);
 			}
 		}catch(Exception e){
-			throw new ProjectionHelperException(e);
+			throw new AliasToBeanResultTransformerException(e);
 		}
 		return genericList;
 	}

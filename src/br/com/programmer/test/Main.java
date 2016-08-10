@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.programmer.AliasToBeanResultTransformer;
-import br.com.programmer.exception.ProjectionHelperException;
+import br.com.programmer.exception.AliasToBeanResultTransformerException;
 import br.com.programmer.test.entities.Person;
 
 public class Main {
@@ -21,7 +21,7 @@ public class Main {
 			System.out.println(newList.get(0).getSon().getName());//Andre's son name (Lucas)
 			System.out.println(newList.get(1).getSon().getCar().getName()); ////John's car name (Corsa)
 			System.out.println(newList.get(2).getName());//Juca
-		} catch (ProjectionHelperException e) {
+		} catch (AliasToBeanResultTransformerException e) {
 			e.printStackTrace();
 		}
 	}
