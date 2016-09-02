@@ -13,7 +13,7 @@ import br.com.programmer.exception.AliasToBeanResultTransformerException;
  * {@link www.programmer.com.br}
  *
  */
-public class AliasToBeanResultTransformer {
+public abstract class AliasToBeanResultTransformer {
 
 	/**
 	 * 
@@ -23,10 +23,10 @@ public class AliasToBeanResultTransformer {
 	 * @param resultList
 	 * @param aliases
 	 * @return
-	 * @throws ProjectionHelperException
+	 * @throws AliasToBeanResultTransformerException
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public <T> List<T> transformList(Class clazz, List<Object []> resultList, String[] aliases) throws AliasToBeanResultTransformerException{
+	public static <T> List<T> transformList(Class clazz, List<Object []> resultList, String[] aliases) throws AliasToBeanResultTransformerException{
 		
 		if(resultList.get(0).length != aliases.length){
 			throw new AliasToBeanResultTransformerException("The number of values and aliases must be the same.");
@@ -47,7 +47,7 @@ public class AliasToBeanResultTransformer {
 		return genericList;
 	}
 	
-	private List<List<String>> getAliases(String[] aliases){
+	private static List<List<String>> getAliases(String[] aliases){
 		List<List<String>> list = new ArrayList<List<String>>();
 		List<String> _list = new ArrayList<String> ();
 		for (String string : aliases) {
@@ -57,11 +57,10 @@ public class AliasToBeanResultTransformer {
 		return list;
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private <T> Object createObject(Object obj, final List<String> aliases, Object value) throws NoSuchFieldException, SecurityException, InstantiationException, IllegalAccessException, ClassNotFoundException{
+	@SuppressWarnings({ "unchecked" })
+	private static <T> Object createObject(Object obj, final List<String> aliases, Object value) throws NoSuchFieldException, SecurityException, InstantiationException, IllegalAccessException, ClassNotFoundException{
 		ArrayList<String> aliasesCopy = new ArrayList<String>(aliases);
 		Field f;
-		Class clazz;
 		T t;
 		if(aliasesCopy.size() > 1){//check if it is the attribute which the value should be set
 			f = obj.getClass().getDeclaredField(aliasesCopy.get(0));
