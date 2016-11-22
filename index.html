@@ -8,14 +8,19 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
         <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+        <style>
+            .zoom-in{
+                cursor: zoom-in;
+            }
+        </style>
   </head>
   <body>
     <section class="page-header">
         <h1 class="project-name">Alias to Bean Result Transformer</h1>
         <h2 class="project-tagline">A Hibernate multilevel nested Transformer</h2>
-        <a href="https://github.com/lucasctd/ProjectionHelper" class="btn">View on GitHub</a>
-        <a href="https://github.com/lucasctd/ProjectionHelper/zipball/master" class="btn">Download .zip</a>
-        <a href="https://github.com/lucasctd/ProjectionHelper/tarball/master" class="btn">Download .tar.gz</a>
+        <a href="https://github.com/lucasctd/AliasToBeanResultTransformer" class="btn">View on GitHub</a>
+        <a href="https://github.com/lucasctd/AliasToBeanResultTransformer/zipball/master" class="btn">Download .zip</a>
+        <a href="https://github.com/lucasctd/AliasToBeanResultTransformer/tarball/master" class="btn">Download .tar.gz</a>
     </section>
     <section class="main-content">
         <h3><a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's it about?</h3>
@@ -27,19 +32,25 @@
 
         <p>Let's imagine you have two entities, <strong>Person</strong> and <strong>Car</strong>. You can see them below:</p>
         <p><strong>Person</strong></p>
-        <img src="https://heyupload.us/image/156" width="50%" height="50%"/>
+        <a href="img/Person.PNG" target="_blank" class="zoom-in" title="Click to open on a new tab">
+            <img src="img/Person.PNG" width="50%" height="50%"/>
+        </a>
         <p><strong>Car</strong></p>
-        <img src="https://heyupload.us/image/157" width="50%" height="50%"/>
+        <a href="img/Car.PNG" target="_blank" class="zoom-in" title="Click to open on a new tab">
+            <img src="img/Car.PNG" width="50%" height="50%"/>
+        </a>
         <p>I haven't mapped these classes with Hibernate annotations, but you probably got it.</p>
         <p>Now, in this situation, what would you do to get the name of the car of a person?</p>
         <p>You probably would set a Projection adding the fields you want to retrieve from the database, but if you use something like <i>Criteria.setResultTransformer</i>, it would fail because
         it does not support nested transform. So, here is where you can use our transformer.</p>
         <p>Through the example below you can see how our transformer works.</p>
-        <img src="https://heyupload.us/image/159" width="100%" height="100%"/>
-        <p>On the line #12 we are declaring a possible result list from a criteria. Then, we declare and instantiate the AliasToBeanResultTransformer Object.
-        After that, we only need to pass the root class type of our query, in this case Person, the criteria result list<span style="color: red">*</span>,
+        <a href="img/Main.PNG" target="_blank" class="zoom-in" title="Click to open on a new tab">
+            <img src="img/Main.PNG" width="100%" height="100%"/>
+        </a>
+        <p>On the line #12 we are declaring a possible result list from a criteria. Then, we only need to pass the root class type of our query, in this case Person, the criteria result list<span style="color: red">*</span>,
             and the list of <a href="https://docs.jboss.org/hibernate/orm/3.2/api/org/hibernate/criterion/Projection.html#getAliases()" target="_blank"> aliases.</a>
             And, yeah, that's it. You will then get your your nested objects with its attributes set with their related values.
+            Btw, you can find the whole code of this example <a href="https://github.com/lucasctd/AliasToBeanResultTransformer/tree/master/src/br/com/programmer/test" target="_blank">here</a>.
         </p>
         <p style="color: red; font-size: 9pt">*You must not use <i>Criteria.setResultTransformer</i></p>
         <h3><a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bugs/Suggestions</h3>
@@ -47,7 +58,7 @@
         <p>Please, if you find a bug or something like that, contact me, I will try to fix ASAP. You can also make a pull request though =D </p>
 
         <footer class="site-footer">
-            <span class="site-footer-owner"><a href="https://github.com/lucasctd/ProjectionHelper">Projection Helper</a> is maintained by <a href="https://github.com/lucasctd">lucasctd</a>.</span>
+            <span class="site-footer-owner"><a href="https://github.com/lucasctd/AliasToBeanResultTransformer">Alias to Bean Result Transformer</a> is maintained by <a href="https://github.com/lucasctd">lucasctd</a>.</span>
             <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
         </footer>
     </section>
